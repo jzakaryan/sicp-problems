@@ -14,6 +14,7 @@ Define one and two directly (not in terms of zero and add-1. (Hint: Use substitu
 Let's start by expanding the application `(add-1 zero)` as suggested by the hint in the exercise.
 
 `(lambda (f) (lambda (x) (f ((zero f) x))))`
+
 `(lambda (f) (lambda (x) (f (((lambda (f) (lambda (x) x)) f) x))))`
 
 Now that we can't expand this any further, we can reduce this starting from the innermost application of lambda.
