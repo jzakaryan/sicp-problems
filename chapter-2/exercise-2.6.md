@@ -19,6 +19,7 @@ Let's start by expanding the application `(add-1 zero)` as suggested by the hint
 Now that we can't expand this any further, we can reduce this starting from the innermost application of lambda.
 
 `(lambda (f) (lambda (x) (f ((lambda (x) x) x))))`
+
 `(lambda (f) (lambda (x) (f x)))`
 
 We're there. We can no longer reduce the expression. Therefore we can define `one` directly (without using `zero` or `add-1`).
@@ -28,9 +29,13 @@ We're there. We can no longer reduce the expression. Therefore we can define `on
 Now we need to apply `one` to `add-1` to get the body for `two`.
 
 `(add-1 one)`
+
 `(lambda (f) (lambda (x) (f ((n f) x))))`
+
 `(lambda (f) (lambda (x) (f (((lambda (x) (f x)) f) x))))`
+
 `(lambda (f) (lambda (x) (f ((f f2) x))))`
+
 `(lambda (f) (lambda (x) (f (f x))))`
 
 Note that in step 4 we substituted variable f with f2 in order to avoid collision of unbound variable names.
